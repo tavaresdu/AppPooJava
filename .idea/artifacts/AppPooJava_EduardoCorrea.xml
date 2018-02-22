@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="AppPooJava_EduardoCorrea">
+    <output-path>$PROJECT_DIR$/out/artifacts/AppPooJava_EduardoCorrea</output-path>
+    <root id="archive" name="AppPooJava_EduardoCorrea.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="AppPooJava" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="AppPooJava/web/Web" />
+    </root>
+  </artifact>
+</component>

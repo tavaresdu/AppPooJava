@@ -8,11 +8,11 @@ public class TestaParametro {
         float mensalidade = Float.valueOf(args[2]);
         boolean bolsista = Boolean.valueOf(args[3]);
 
-        StringBuilder builder = new StringBuilder();
-        builder.append("Nome: " + nome + "\n");
-        builder.append("Ano de Nascimento: " + ano_nascimento + "\n");
-        builder.append("Mensalidade: " + mensalidade + "\n");
-        builder.append("Bolsista: " + (bolsista ? "Sim" : "Não"));
-        System.out.println(builder.toString());
+        System.out.println(
+                "Nome: " + nome + "\n" +
+                "Ano de Nascimento: " + ano_nascimento + "\n" +
+                "Mensalidade: " + mensalidade + "\n" +
+                "Bolsista: " + (bolsista ? "Sim" : "Não")
+        );
     }
 }

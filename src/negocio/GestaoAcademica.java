@@ -3,8 +3,24 @@ package negocio;
 import java.util.ArrayList;
 
 public class GestaoAcademica {
-    public Aluno[] alunos;
-    public Aluno alunoDevedor;
+    private Aluno[] alunos;
+    private Aluno alunoDevedor;
+
+    public Aluno[] getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(Aluno[] alunos) {
+        this.alunos = alunos;
+    }
+
+    public Aluno getAlunoDevedor() {
+        return alunoDevedor;
+    }
+
+    public void setAlunoDevedor(Aluno alunoDevedor) {
+        this.alunoDevedor = alunoDevedor;
+    }
 
     public void exibir() {
         float somaMensalidade = 0;
@@ -14,9 +30,9 @@ public class GestaoAcademica {
         for (Aluno aluno : this.alunos) {
             if (this.alunoDevedor.equals(aluno))
                 resposta = "";
-            somaMensalidade += aluno.mensalidade;
-            if (maiorAno < aluno.ano_nascimento)
-                maiorAno = aluno.ano_nascimento;
+            somaMensalidade += aluno.getMensalidade();
+            if (maiorAno < aluno.getAnoNascimento())
+                maiorAno = aluno.getAnoNascimento();
             aluno.exibir();
         }
 

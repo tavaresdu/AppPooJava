@@ -16,7 +16,9 @@ public class TestaFaturamento {
         }
 
         SimpleDateFormat from = new SimpleDateFormat("M");
-        SimpleDateFormat to = new SimpleDateFormat("MMMM", new Locale("pt", "BR"));
+        SimpleDateFormat to = new SimpleDateFormat("MMMM",
+                new Locale("pt", "BR")
+        );
 
         System.out.println("Faturamento:");
         for (int i = 0; i < totalAnual.length; i++) {

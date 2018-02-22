@@ -4,17 +4,48 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Cadastro {
-    public String[] nomes;
-    public int[] anos;
-    public float[] mensalidades;
-    public boolean[] bolsas;
+    private String[] nomes;
+    private int[] anos;
+    private float[] mensalidades;
+    private boolean[] bolsas;
+
+    public String[] getNomes() {
+        return nomes;
+    }
+
+    public void setNomes(String[] nomes) {
+        this.nomes = nomes;
+    }
+
+    public int[] getAnos() {
+        return anos;
+    }
+
+    public void setAnos(int[] anos) {
+        this.anos = anos;
+    }
+
+    public float[] getMensalidades() {
+        return mensalidades;
+    }
+
+    public void setMensalidades(float[] mensalidades) {
+        this.mensalidades = mensalidades;
+    }
+
+    public boolean[] getBolsas() {
+        return bolsas;
+    }
+
+    public void setBolsas(boolean[] bolsas) {
+        this.bolsas = bolsas;
+    }
 
     private void exibir(String titulo, Object[] args) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(titulo + ":\n");
+        String string = titulo + ":\n";
         for (Object arg : args)
-            stringBuilder.append("> " + arg + "\n");
-        System.out.println(stringBuilder.toString());
+            string += "> " + arg + "\n";
+        System.out.println(string);
     }
 
     public void exibirNomes() {

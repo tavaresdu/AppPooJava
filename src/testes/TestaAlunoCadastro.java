@@ -11,10 +11,10 @@ public class TestaAlunoCadastro {
         boolean[] bolsas = {false, false, true};
 
         Cadastro cadastro = new Cadastro();
-        cadastro.nomes = nomes;
-        cadastro.anos = anos;
-        cadastro.mensalidades = mensalidades;
-        cadastro.bolsas = bolsas;
+        cadastro.setNomes(nomes);
+        cadastro.setAnos(anos);
+        cadastro.setMensalidades(mensalidades);
+        cadastro.setBolsas(bolsas);
 
         cadastro.exibirNomes();
         cadastro.exibirIdades();

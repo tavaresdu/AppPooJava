@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="resource/css/styles.css">
+    <title>Aluno</title>
+</head>
+<body>
+<form id="form_aluno" class="form" action="AlunoController">
+    <div class="form_title">
+        <h2>Aluno</h2>
+    </div>
+        <div class="form_div">
+            <label class="description">Nome</label>
+            <br>
+            <input id="name_input" name="name" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Ano de Nascimento</label>
+            <br>
+            <input id="year_input" name="year" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Mensalidade</label>
+            <br>
+            <input id="fee_input" name="fee" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Bolsista?</label>
+            <br>
+            <input id="scholarship_yes_input" name="scholarship" type="radio" value="true"/>
+            <label>Sim</label>
+            <input id="scholarship_no_input" name="scholarship" type="radio" value="false"/>
+            <label>Não</label>
+		</div>
+        <div class="form_div">
+            <input id="show" type="submit" name="show" value="Exibir"/>
+        </div>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

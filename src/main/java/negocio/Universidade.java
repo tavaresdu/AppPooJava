@@ -47,11 +47,13 @@ public class Universidade {
     }
 
     public void exibir() {
-        System.out.println(
-                "Razão Social: " + this.razaoSocial + "\n" +
+        System.out.println(this.obterRelatorio());
+    }
+
+    public String obterRelatorio() {
+        return "Razão Social: " + this.razaoSocial + "\n" +
                 "E-mail: " + this.email + "\n" +
                 "Telefone: " + this.telefone + "\n" +
-                "Endereço: " + (this.endereco)
-        );
+                "Endereço: " + (this.endereco);
     }
 }

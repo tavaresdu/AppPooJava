@@ -94,15 +94,7 @@ public class Aluno {
     }
 
     public void exibir() {
-        String string = "Nome: " + this.nome + "\n";
-        string += "Ano de Nascimento: " + this.anoNascimento + "\n";
-        string += "Mensalidade: " + this.mensalidade + "\n";
-        string += "Bolsista: " + (this.bolsista ? "Sim" : "Não") + "\n";
-        if (this.endereco != null)
-            string += "Endereço: " + (this.endereco) + "\n";
-        if (this.universidade != null)
-            string += "Universidade: " + this.universidade.getRazaoSocial();
-        System.out.println(string);
+        System.out.println(this.obterRelatorio());
     }
 
     public void exibir(Boolean bolsista) {
@@ -129,5 +121,16 @@ public class Aluno {
         } else {
             return false;
         }
+    }
+
+    public String obterRelatorio() {
+        return "Nome: " + this.nome + "\n" +
+                "Ano de Nascimento: " + this.anoNascimento + "\n" +
+                "Mensalidade: " + this.mensalidade + "\n" +
+                "Bolsista: " + (this.bolsista ? "Sim" : "Não") + "\n" +
+                (this.endereco != null ? "Endereço: " +
+                        (this.endereco) + "\n" : "") +
+                (this.universidade != null ? "Universidade: " +
+                        this.universidade.getRazaoSocial() : "");
     }
 }

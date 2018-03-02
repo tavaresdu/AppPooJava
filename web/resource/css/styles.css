@@ -1,0 +1,18 @@
+.credits, .borderless {
+    text-align: center;
+}
+
+.credits {
+    margin-top: 32px;
+    font-size: small
+}
+
+.borderless {
+    width: 100%;
+    border: none;
+    margin-top: 32px
+}
+
+.form_div {
+    margin-bottom: 20px;
+}

@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="AppPooJava_EduardoCorrea">
-    <output-path>$PROJECT_DIR$/out/artifacts/AppPooJava_EduardoCorrea</output-path>
-    <root id="archive" name="AppPooJava_EduardoCorrea.war">
+  <artifact type="exploded-war" name="AppPooJava:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/AppPooJava_war_exploded</output-path>
+    <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="AppPooJava" />

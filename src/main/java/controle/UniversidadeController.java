@@ -8,9 +8,18 @@ import negocio.Universidade;
 import javax.servlet.annotation.WebServlet;
 import javax.swing.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/UniversidadeController")
 public class UniversidadeController extends javax.servlet.http.HttpServlet {
+    private Aluno[] alunos;
+    private int index;
+
+    public UniversidadeController() {
+        this.index = 0;
+        this.alunos = new Aluno[10];
+    }
+
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
     }
 
@@ -31,6 +40,15 @@ public class UniversidadeController extends javax.servlet.http.HttpServlet {
                         request.getParameter("state_uni"))
         );
         aluno.setEndereco(endereco);
-        aluno.exibir();
+        if (Boolean.valueOf(request.getParameter("print"))) {
+            for (int i = 0; i < this.index; i++) {
+                PrintWriter out = response.getWriter();
+                out.printf(alunos[i].obterRelatorio());
+            }
+        } else {
+            request.getRequestDispatcher("index.html").forward(request, response);
+        }
+        this.alunos[this.index] = aluno;
+        this.index++;
     }
 }

@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.List;
+
 public class Aluno {
     private String nome;
     private int anoNascimento;
@@ -102,13 +104,13 @@ public class Aluno {
         this.exibir();
     }
 
-    public void exibir(String[] notas) {
+    public void exibir(List<String> notas) {
         float notas_soma = 0;
         for (String nota : notas) {
             notas_soma += Float.valueOf(nota);
         }
         this.exibir();
-        System.out.println("Média = " + (notas_soma / notas.length));
+        System.out.println("Média = " + (notas_soma / notas.size()));
     }
 
     @Override

@@ -1,47 +1,49 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class Cadastro {
-    private String[] nomes;
-    private int[] anos;
-    private float[] mensalidades;
-    private boolean[] bolsas;
+    private List<String> nomes;
+    private List<Integer> anos;
+    private List<Float> mensalidades;
+    private List<Boolean> bolsas;
 
-    public String[] getNomes() {
+    public List<String> getNomes() {
         return nomes;
     }
 
-    public void setNomes(String[] nomes) {
+    public void setNomes(List<String> nomes) {
         this.nomes = nomes;
     }
 
-    public int[] getAnos() {
+    public List<Integer> getAnos() {
         return anos;
     }
 
-    public void setAnos(int[] anos) {
+    public void setAnos(List<Integer> anos) {
         this.anos = anos;
     }
 
-    public float[] getMensalidades() {
+    public List<Float> getMensalidades() {
         return mensalidades;
     }
 
-    public void setMensalidades(float[] mensalidades) {
+    public void setMensalidades(List<Float> mensalidades) {
         this.mensalidades = mensalidades;
     }
 
-    public boolean[] getBolsas() {
+    public List<Boolean> getBolsas() {
         return bolsas;
     }
 
-    public void setBolsas(boolean[] bolsas) {
+    public void setBolsas(List<Boolean> bolsas) {
         this.bolsas = bolsas;
     }
 
-    private void exibir(String titulo, Object[] args) {
+    private void exibir(String titulo, List args) {
         String string = titulo + ":\n";
         for (Object arg : args)
             string += "> " + arg + "\n";
@@ -52,13 +54,12 @@ public class Cadastro {
         this.exibir("Alunos", this.nomes);
     }
 
-    private Integer[] calculaIdades() {
+    private List<Integer> calculaIdades() {
         ArrayList<Integer> idades = new ArrayList<Integer>();
         Calendar calendar = Calendar.getInstance();
         for (int ano : this.anos)
             idades.add(calendar.get(Calendar.YEAR) - ano);
-        Integer[] modelo = new Integer[idades.size()];
-        return idades.toArray(modelo);
+        return idades;
     }
 
     public void exibirIdades() {
@@ -74,60 +75,63 @@ public class Cadastro {
 
     public void exibirTotalMensalidades() {
         Float[] soma = {this.somaMensalidades()};
-        this.exibir("Total das mensalidades", soma);
+        this.exibir("Total das mensalidades", Arrays.asList(soma));
     }
 
     public void exibirTotalBolsistas() {
         Integer[] bolsas = {0};
         for (boolean bolsa : this.bolsas)
             bolsas[0] += bolsa ? 1 : 0;
-        this.exibir("Total de bolsistas", bolsas);
+        this.exibir("Total de bolsistas", Arrays.asList(bolsas));
     }
 
     public void exibirAlunoMaisVelho() {
         String[] nome = new String[1];
         int menorAno = Calendar.getInstance().get(Calendar.YEAR);
-        for (int i = 0; i < this.nomes.length; i++) {
-            if (this.anos[i] < menorAno) {
-                menorAno = this.anos[i];
-                nome[0] = this.nomes[i];
+        for (int ano : anos) {
+            if (ano < menorAno) {
+                menorAno = ano;
+                nome[0] = nomes.get(anos.indexOf(ano));
             }
         }
-        this.exibir("Aluno mais velho", nome);
+        this.exibir("Aluno mais velho", Arrays.asList(nome));
     }
 
     public void exibirAlunoMaiorMensalidade() {
         String[] nome = new String[1];
         int maiorMensalidade = Integer.MIN_VALUE;
-        for (int i = 0; i < this.nomes.length; i++) {
-            if (this.mensalidades[i] > maiorMensalidade) {
-                maiorMensalidade = this.anos[i];
-                nome[0] = this.nomes[i];
+        for (int i = 0; i < this.nomes.size(); i++) {
+            if (this.mensalidades.get(i) > maiorMensalidade) {
+                maiorMensalidade = this.anos.get(i);
+                nome[0] = this.nomes.get(i);
             }
         }
-        this.exibir("Aluno com maior mensalidade", nome);
+        this.exibir("Aluno com maior mensalidade", Arrays.asList(nome));
     }
 
     public void exibirQuantidadeAlunos() {
-        Integer[] quantidade = {this.nomes.length};
-        this.exibir("Quantidade de alunos", quantidade);
+        Integer[] quantidade = {this.nomes.size()};
+        this.exibir("Quantidade de alunos", Arrays.asList(quantidade));
     }
 
     public void exibirMediaIdade() {
         Float[] media = {0f};
-        Integer[] idades = this.calculaIdades();
+        List<Integer> idades = this.calculaIdades();
         for (int idade : idades) {
             media[0] += idade;
         }
-        media[0] /= idades.length;
-        this.exibir("Média de idade de alunos", media);
+        media[0] /= idades.size();
+        this.exibir("Média de idade de alunos", Arrays.asList(media));
     }
 
     public void exibirAlunoZezinho() {
-        String[] resposta = {"Não"};
+        List<String> resposta = new ArrayList<String>();
         for (String nome : this.nomes) {
             if (nome.toLowerCase().equals("zezinho")) {
-                resposta[0] = "Sim";
+                resposta.add("Sim");
+                break;
+            } else {
+                resposta.add("Não");
                 break;
             }
         }
@@ -135,8 +139,8 @@ public class Cadastro {
     }
 
     public void exibirMediaMensalidade() {
-        Float[] media = {somaMensalidades()};
-        media[0] /= this.mensalidades.length;
+        List<Float> media = new ArrayList<Float>();
+        media.add(somaMensalidades() / this.mensalidades.size());
         this.exibir("Média de mensalidades", media);
     }
 }

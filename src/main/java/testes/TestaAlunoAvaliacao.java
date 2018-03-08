@@ -2,6 +2,8 @@ package testes;
 
 import negocio.Aluno;
 
+import java.util.Arrays;
+
 public class TestaAlunoAvaliacao {
 
     public static void main(String[] args) {
@@ -10,6 +12,6 @@ public class TestaAlunoAvaliacao {
         aluno.setAnoNascimento(1900);
         aluno.setMensalidade(1000);
         aluno.setBolsista(false);
-        aluno.exibir(args);
+        aluno.exibir(Arrays.asList(args));
     }
 }

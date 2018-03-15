@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="resource/css/styles.css">
+    <title>Aluno</title>
+</head>
+<body>
+<form id="form_aluno" class="form" action="AvaliacaoController">
+    <div class="form_title">
+        <h2>Aluno</h2>
+    </div>
+        <div class="form_div">
+            <label class="description">Nome</label>
+            <br>
+            <select name="aluno_select">
+                <option value="null">Selecione um aluno</option>
+                <option>Eduardo Tavares da Silva Correa</option>
+                <option>Filipe Vasconcelos Oliveira</option>
+                <option>Rodrigo de Moraes Filomeno</option>
+                <option>Victor Hugo Billi de Oliveira Dias</option>
+            </select>
+        </div>
+        <div class="form_div">
+            <label class="description">Disciplina</label>
+            <br>
+            <select name="disciplina_select">
+                <option value="null">Selecione uma disciplina</option>
+                <option>Fundamentos do Desenvolvimento Java</option>
+                <option>Orientação a Objetos com Java</option>
+                <option>Projeto de Bloco - Desenvolvimento Java</option>
+            </select>
+        </div>
+        <div class="form_div">
+            <label class="description">Nota da Prova 1</label>
+            <br>
+            <input id="p1_input" name="p1" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Nota do Trabalho 1</label>
+            <br>
+            <input id="t1_input" name="t1" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Nota da Prova 2</label>
+            <br>
+            <input id="p2_input" name="p2" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <label class="description">Nota do Trabalho 2</label>
+            <br>
+            <input id="t2_input" name="t2" type="text" maxlength="255"
+                   value=""/>
+        </div>
+        <div class="form_div">
+            <input id="show" type="submit" name="show" value="Exibir"/>
+        </div>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

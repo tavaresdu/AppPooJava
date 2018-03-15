@@ -1,6 +1,7 @@
 package negocio;
 
 import java.util.List;
+import java.util.Set;
 
 public class Aluno {
     private String nome;
@@ -9,6 +10,7 @@ public class Aluno {
     private boolean bolsista;
     private Endereco endereco;
     private Universidade universidade;
+    private Set<Avaliacao> avaliacoes;
 
     public Aluno() {
         this.nome = "Aluno desconhecido";
@@ -95,6 +97,14 @@ public class Aluno {
         this.universidade = universidade;
     }
 
+    public Set<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(Set<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+
     public void exibir() {
         System.out.println(this.obterRelatorio());
     }
@@ -126,7 +136,7 @@ public class Aluno {
     }
 
     public String obterRelatorio() {
-        return "Nome: " + this.nome + "\n" +
+        String string =  "Nome: " + this.nome + "\n" +
                 "Ano de Nascimento: " + this.anoNascimento + "\n" +
                 "Mensalidade: " + this.mensalidade + "\n" +
                 "Bolsista: " + (this.bolsista ? "Sim" : "Não") + "\n" +
@@ -134,5 +144,11 @@ public class Aluno {
                         (this.endereco) + "\n" : "") +
                 (this.universidade != null ? "Universidade: " +
                         this.universidade.getRazaoSocial() : "");
+        if (avaliacoes != null) {
+            for (Avaliacao avaliacao : this.avaliacoes) {
+                string += avaliacao.obterRelatorio();
+            }
+        }
+        return string;
     }
 }

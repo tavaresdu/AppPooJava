@@ -15,17 +15,13 @@ import java.util.Set;
 
 @WebServlet("/AvaliacaoController")
 public class AvaliacaoController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     private Set<Avaliacao> avaliacoes;
     private Aluno aluno;
     private Avaliacao avaliacao;
 
     public AvaliacaoController() {
-        super();
         aluno = new Aluno();
-
         avaliacoes = new HashSet<Avaliacao>();
-
         aluno.setAvaliacoes(avaliacoes);
     }
 

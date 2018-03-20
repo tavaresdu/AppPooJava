@@ -1,11 +1,17 @@
 package controle;
 
+import negocio.Disciplina;
+import negocio.Professor;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 @WebServlet(name = "ProfessorController")
 public class ProfessorController extends HttpServlet {
@@ -13,9 +19,9 @@ public class ProfessorController extends HttpServlet {
     private Professor professor;
     private Disciplina disciplina;
 
-    public AvaliacaoController() {
+    public ProfessorController() {
         professor = new Professor();
-        disciplinas = new HashSet<Disciplina>();
+        disciplinas = new ArrayList<Disciplina>();
         professor.setDisciplinas(disciplinas);
     }
 
